@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #142D3B;
+  background: #F6F4EF;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+
+  --navy: #142D3B;
+  --teal: #287F78;
+  --teal-dark: #206b65;
+  --mint: #DCEDE8;
+  --ivory: #F6F4EF;
+  --lavender: #D8C7ED;
+  --white: #FFFFFF;
+  --muted: #74838a;
+  --line: #e8ece8;
+  --shadow-card: 0 12px 34px rgba(20, 45, 59, 0.045);
+  --radius-card: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--ivory);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(40, 127, 120, 0.28);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: var(--navy);
+  background: var(--mint);
+}

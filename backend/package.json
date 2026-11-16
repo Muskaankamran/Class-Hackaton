@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "seed:admin": "node scripts/seed-admin.js"
+    "seed:admin": "node scripts/seed-admin.js",
+    "seed:doctors": "node scripts/seed-doctors.js"
   },
   "dependencies": {
     "@imagekit/nodejs": "^7.12.1",

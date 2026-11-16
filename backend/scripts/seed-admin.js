@@ -15,6 +15,12 @@ async function seedAdmin() {
 
   await connectDB();
   const email = ADMIN_EMAIL.trim().toLowerCase();
+  if (await userModel.exists({ role: "admin" })) {
+    throw new Error("An administrator already exists; initial seeding is disabled");
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    throw new Error("ADMIN_EMAIL must be a valid email address");
+  }
   if (await userModel.exists({ email })) {
     throw new Error("An account already exists for ADMIN_EMAIL; no account was changed");
   }

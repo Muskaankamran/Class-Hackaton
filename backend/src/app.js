@@ -3,6 +3,7 @@ import authRoutes from "./routes/auth.routes.js";
 import doctorRoutes from "./routes/doctors.routes.js";
 import appointmentRoutes from "./routes/appointments.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
+import aiRoutes from "./routes/ai.routes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const app = express();
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
