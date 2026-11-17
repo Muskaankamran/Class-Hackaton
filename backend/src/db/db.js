@@ -1,17 +1,24 @@
-import 'dotenv/config';
-import dns from 'node:dns/promises';
-dns.setServers(['1.1.1.1', '8.8.8.8']);
+import dns from "node:dns";
 
-import chalk from 'chalk';
-import mongoose from 'mongoose';
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
-async function main() {
+import mongoose from "mongoose";
+
+async function connectDB() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log(chalk.white.bgGreen.bold("Connected to DB"));
-  } catch (err) {
-    console.log(chalk.blue.bgRed.bold("Error connecting to DB"), err);
+    if (mongoose.connection.readyState === 1) {
+      return;
+    }
+
+    await mongoose.connect(process.env.MONGODB_URI, {
+      serverSelectionTimeoutMS: 10000,
+    });
+
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error.message);
+    throw error;
   }
 }
 
-export default main;
+export default connectDB;
